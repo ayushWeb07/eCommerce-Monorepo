@@ -1,4 +1,4 @@
-import "dotenv/config"
+import "dotenv/config";
 import fastify, { FastifyReply, FastifyRequest } from "fastify";
 import { clerkClient, getAuth, clerkPlugin } from "@clerk/fastify";
 

@@ -22,7 +22,7 @@ importers:
     dependencies:
       '@clerk/fastify':
         specifier: ^3.1.59
-        version: 3.1.59(fastify@5.11.2)
+        version: 3.1.59(fastify@5.11.2)(react@19.2.8)
       dotenv:
         specifier: ^17.4.2
         version: 17.4.2
@@ -57,9 +57,15 @@ importers:
 
   apps/payments-service:
     dependencies:
+      '@clerk/hono':
+        specifier: ^0.1.59
+        version: 0.1.59(hono@4.13.0)(react@19.2.8)
       '@hono/node-server':
         specifier: ^2.0.12
         version: 2.0.12(hono@4.13.0)
+      dotenv:
+        specifier: ^17.4.2
+        version: 17.4.2
       hono:
         specifier: ^4.13.0
         version: 4.13.0
@@ -87,7 +93,7 @@ importers:
     dependencies:
       '@clerk/express':
         specifier: ^2.1.49
-        version: 2.1.49(express@5.2.1)
+        version: 2.1.49(express@5.2.1)(react@19.2.8)
       dotenv:
         specifier: ^17.4.2
         version: 17.4.2
@@ -184,6 +190,12 @@ packages:
     engines: {node: '>=20.9.0'}
     peerDependencies:
       fastify: '>=5'
+
+  '@clerk/hono@0.1.59':
+    resolution: {integrity: sha512-WgDWVhU27q7NYq/hcmdalKMzhsUeR2Oj1l2y5xI3Yr4CU/SEfzCNVtx25RKozCcXDZ25E9Gh0cRbtK5tR+TndA==}
+    engines: {node: '>=20.9.0'}
+    peerDependencies:
+      hono: '>=4'
 
   '@clerk/shared@4.25.10':
     resolution: {integrity: sha512-Vjqk74nQGJ8y+cm+eSshoBzRvBhIzuKLOs3Gt13gEHdyQ6yV798Dl2SrBKt0jw2u6I1tOcD3s8/i9P4yJYo0dw==}
@@ -1603,6 +1615,10 @@ packages:
   react-is@16.13.1:
     resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}
 
+  react@19.2.8:
+    resolution: {integrity: sha512-PWaYA1L/q9u2u7xYQi+Y3L3Yfnie7XyLeaJICV1MGD6LprsBxcAqGjYyr0eY3p+QdsA+x/Irkt4Qif8D63+Sbw==}
+    engines: {node: '>=0.10.0'}
+
   readable-stream@3.6.2:
     resolution: {integrity: sha512-9u/sniCrY3D5WdsERHzHE4G2YCXqoG5FTHUiCC4SIbr6XcLZBY05ya9EKjYek9O5xOAwjGq+1JdGBAS7Q9ScoA==}
     engines: {node: '>= 6'}
@@ -1972,41 +1988,52 @@ packages:
 
 snapshots:
 
-  '@clerk/backend@3.15.0':
+  '@clerk/backend@3.15.0(react@19.2.8)':
     dependencies:
-      '@clerk/shared': 4.25.10
+      '@clerk/shared': 4.25.10(react@19.2.8)
       standardwebhooks: 1.0.0
       tslib: 2.8.1
     transitivePeerDependencies:
       - react
       - react-dom
 
-  '@clerk/express@2.1.49(express@5.2.1)':
+  '@clerk/express@2.1.49(express@5.2.1)(react@19.2.8)':
     dependencies:
-      '@clerk/backend': 3.15.0
-      '@clerk/shared': 4.25.10
+      '@clerk/backend': 3.15.0(react@19.2.8)
+      '@clerk/shared': 4.25.10(react@19.2.8)
       express: 5.2.1
       tslib: 2.8.1
     transitivePeerDependencies:
       - react
       - react-dom
 
-  '@clerk/fastify@3.1.59(fastify@5.11.2)':
+  '@clerk/fastify@3.1.59(fastify@5.11.2)(react@19.2.8)':
     dependencies:
-      '@clerk/backend': 3.15.0
-      '@clerk/shared': 4.25.10
+      '@clerk/backend': 3.15.0(react@19.2.8)
+      '@clerk/shared': 4.25.10(react@19.2.8)
       fastify: 5.11.2
       fastify-plugin: 5.1.0
     transitivePeerDependencies:
       - react
       - react-dom
 
-  '@clerk/shared@4.25.10':
+  '@clerk/hono@0.1.59(hono@4.13.0)(react@19.2.8)':
+    dependencies:
+      '@clerk/backend': 3.15.0(react@19.2.8)
+      '@clerk/shared': 4.25.10(react@19.2.8)
+      hono: 4.13.0
+    transitivePeerDependencies:
+      - react
+      - react-dom
+
+  '@clerk/shared@4.25.10(react@19.2.8)':
     dependencies:
       '@tanstack/query-core': 5.101.4
       dequal: 2.0.3
       glob-to-regexp: 0.4.1
       js-cookie: 3.0.7
+    optionalDependencies:
+      react: 19.2.8
 
   '@colors/colors@1.6.0': {}
 
@@ -3570,6 +3597,9 @@ snapshots:
       unpipe: 1.0.0
 
   react-is@16.13.1: {}
+
+  react@19.2.8:
+    optional: true
 
   readable-stream@3.6.2:
     dependencies:
